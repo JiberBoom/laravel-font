@@ -1,0 +1,7 @@
+ul.nav.nav-list.tree{
+    margin-left: 15px;
+}
+li.tree-toggle.nav-header{
+    /*background: #78837f;*/
+    list-style: none;
+}

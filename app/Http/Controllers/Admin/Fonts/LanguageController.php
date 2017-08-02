@@ -14,7 +14,8 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('admin/languages/index');
     }
 
     /**

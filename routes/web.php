@@ -43,6 +43,8 @@ Route::group(['namespace' => 'Admin'], function () {
 
         Route::paginate('/admin/fonts/index','FontsController@index');//字体列表
 
+        Route::paginate('/admin/languages/index','LanguagesController@index');//语种列表
+
         Route::get('/admin/fonts/add','FontsController@create');
 
         Route::post('/admin/fonts/store','FontsController@store');//新增字体

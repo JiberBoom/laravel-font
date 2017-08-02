@@ -26,7 +26,7 @@ class Sidebar
 
            $font->add('美元价格列表',['url'=>'#','class'=>'tree-toggle nav-header']);
 
-           $font->add('语种列表',['url'=>'#','class'=>'tree-toggle nav-header']);
+           $font->add('语种列表',['url'=>url('/admin/languages/index'),'class'=>'tree-toggle nav-header']);
 
            $font->add('模板图列表',['url'=>'#','class'=>'tree-toggle nav-header']);
 

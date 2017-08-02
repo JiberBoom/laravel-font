@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Fonts;
 
+use App\Models\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class LanguageController extends Controller
+class LanguagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,9 @@ class LanguageController extends Controller
      */
     public function index()
     {
+        $lists = Language::paginate(10);
 
-        return view('admin/languages/index');
+        return view('admin/languages/index',compact('lists'));
     }
 
     /**

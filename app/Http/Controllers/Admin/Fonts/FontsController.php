@@ -148,7 +148,7 @@ class FontsController extends Controller
         if($file){
             //检验一下上传的文件是否有效.
             if($file -> isValid()){
-                
+
                 $clientName = $file -> getClientOriginalName();
 
                 $extension = $file -> getClientOriginalExtension();

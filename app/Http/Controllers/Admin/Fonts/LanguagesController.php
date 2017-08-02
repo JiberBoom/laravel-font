@@ -15,6 +15,7 @@ class LanguagesController extends Controller
      */
     public function index()
     {
+
         $lists = Language::paginate(10);
 
         return view('admin/languages/index',compact('lists'));

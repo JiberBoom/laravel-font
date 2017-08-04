@@ -56,6 +56,16 @@ Route::group(['namespace' => 'Admin'], function () {
 
     });
 
+    Route::group(['namespace'=>'Roles'],function(){
+
+        Route::paginate('/roles/index','RolesController@index');//角色列表
+
+        Route::paginate('/roles/permissions','RolesController@getPermissions');//权限列表
+
+        Route::get('/roles/add','RolesController@create');
+
+    });
+
 });
 
 

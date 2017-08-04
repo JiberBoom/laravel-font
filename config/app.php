@@ -176,6 +176,10 @@ return [
 
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,//上传文件七牛云
 
+        Spatie\Permission\PermissionServiceProvider::class,//权限管理
+
+        Barryvdh\Debugbar\ServiceProvider::class,//debug调试
+
         /*
          * Application Service Providers...
          */

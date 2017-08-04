@@ -44,6 +44,10 @@ class Sidebar
 
             $order->add('订单列表',['url'=>'#','class'=>'tree-toggle nav-header']);
 
+            //角色管理
+            $permission = $menu->add('角色权限管理', ['url'=>'#','class'=>'glyphicon glyphicon-folder-open tree-toggle nav-header']);
+
+            $permission->add('角色列表',['url'=>url('/roles/index'),'class'=>'tree-toggle nav-header']);
 
         });
     }

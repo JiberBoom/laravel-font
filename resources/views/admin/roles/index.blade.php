@@ -102,7 +102,7 @@
 
                                         </td>
                                         <td>{{$val->created_at}}</td>
-                                        <td>撤回</td>
+                                        <td>撤回 | 编辑 | 增加</td>
                                     </tr>
 
                                 @endforeach

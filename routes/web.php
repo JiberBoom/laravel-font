@@ -58,6 +58,7 @@ Route::group(['namespace' => 'Admin'], function () {
 
     Route::group(['namespace'=>'Roles'],function(){
 
+        //角色
         Route::paginate('/roles/index','RolesController@index');//角色列表
 
         Route::get('/roles/add','RolesController@create');
@@ -72,8 +73,15 @@ Route::group(['namespace' => 'Admin'], function () {
 
         Route::get('/roles/{role_id}/revokePermission/{permission_name}','RolesController@revokePermission');//撤回权限
 
-
         Route::resource('/roles','RolesController');
+
+        //权限
+        Route::paginate('/permissions/index','PermissionsController@index');//权限列表
+        Route::get('/permissions/add','PermissionsController@create');
+        Route::post('permissions/create','PermissionsController@store');
+
+        Route::resource('/permissions','PermissionsController');
+
 
     });
 

@@ -48,11 +48,13 @@ class Sidebar
             $order->add('订单列表',['url'=>'#','class'=>'tree-toggle nav-header'])->link->attr(array('class'=>'glyphicon glyphicon-th-list'));
 
             //角色管理
-            $permission = $menu->add('角色权限管理', ['url'=>'#','class'=>'tree-toggle nav-header']);
-            $permission->link->attr(array('class'=>'glyphicon glyphicon-folder-open'));
-            $permission->link->href('#');
+            $role = $menu->add('角色权限管理', ['url'=>'#','class'=>'tree-toggle nav-header']);
+            $role->link->attr(array('class'=>'glyphicon glyphicon-folder-open'));
+            $role->link->href('#');
 
-            $permission->add('角色列表',['url'=>url('/roles/index'),'class'=>'tree-toggle nav-header'])->link->attr(array('class'=>'glyphicon glyphicon-th-list'));;
+            $role->add('角色列表',['url'=>url('/roles/index'),'class'=>'tree-toggle nav-header'])->link->attr(array('class'=>'glyphicon glyphicon-th-list'));
+
+            $role->add('权限列表',['url'=>url('/permissions/index'),'class'=>'tree-toggle nav-header'])->link->attr(array('class'=>'glyphicon glyphicon-th-list'));
 
         });
     }

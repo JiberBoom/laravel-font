@@ -60,9 +60,20 @@ Route::group(['namespace' => 'Admin'], function () {
 
         Route::paginate('/roles/index','RolesController@index');//角色列表
 
-        Route::paginate('/roles/permissions','RolesController@getPermissions');//权限列表
-
         Route::get('/roles/add','RolesController@create');
+
+        Route::post('/roles/store','RolesController@store');//创建角色
+
+        Route::get('/roles/assignRole','RolesController@assignRole');//给用户授予角色
+
+        Route::get('/roles/assignRolePermission','RolesController@assignRolePermission');//给角色授予权限
+
+        Route::get('/roles/{role_name}/revokeRole/{uid}','RolesController@revokeRole');//撤回角色
+
+        Route::get('/roles/{role_id}/revokePermission/{permission_name}','RolesController@revokePermission');//撤回权限
+
+
+        Route::resource('/roles','RolesController');
 
     });
 

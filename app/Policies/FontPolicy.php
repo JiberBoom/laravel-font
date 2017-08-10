@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\User;
 use App\Models\Font;
+use BLogger;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -26,8 +27,6 @@ class FontPolicy
 
        $permissions =  $this->getUserPermissions();
 
-        Log::info(Auth::user()->name.'查看了字体列表');
-
        return  in_array('font list',$permissions);
     }
 
@@ -41,8 +40,6 @@ class FontPolicy
     {
         //进入增加字体页面权限
         $permissions =  $this->getUserPermissions();
-
-        Log::info(Auth::user()->name.'点击了字体增加按钮');
 
         return in_array('add font',$permissions);
     }

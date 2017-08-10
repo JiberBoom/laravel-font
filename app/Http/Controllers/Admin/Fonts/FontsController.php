@@ -20,7 +20,10 @@ class FontsController extends Controller
      */
     public function index()
     {
-//        Log::info(Auth::user()->name.'查看了字体列表',['user_id'=>Auth::id()]);//记录日志
+
+        Log::useFiles(storage_path().'/logs/font-'.date('Y-m-d').'.log','debug');//生成日志文件
+
+        Log::info(Auth::user()->name.'查看了字体列表',['user_id'=>Auth::id()]);//记录日志
 
         $font = Font::orderBy('id','desc')
 

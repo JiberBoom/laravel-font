@@ -6,8 +6,10 @@ use App\Http\Requests\Admin\FontRequest;
 use App\Models\Font;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 
 class FontsController extends Controller
 {
@@ -18,7 +20,9 @@ class FontsController extends Controller
      */
     public function index()
     {
-        $lists = Font::orderBy('id','desc')
+//        Log::info(Auth::user()->name.'查看了字体列表',['user_id'=>Auth::id()]);//记录日志
+
+        $font = Font::orderBy('id','desc')
 
             ->select('fonts.*','b.code')
 
@@ -26,7 +30,20 @@ class FontsController extends Controller
 
             ->paginate(10);//分页显示
 
-        return view('admin.fonts.index',compact('lists'));
+        if(Auth::user()->can('view',Font::class)){
+
+            return view('admin.fonts.index',compact('font'));
+
+        }else{
+
+            $str = '您无权限查看字体列表,'.'<a href="#" onclick="javascript:history.back(-1)">点击返回</a>';
+
+           return $str;
+        }
+
+
+//        $this->authorize('view',Font::class);//这种方式验证可以验证但是报laravel自身带的错误不好看
+
     }
 
     /**
@@ -36,7 +53,16 @@ class FontsController extends Controller
      */
     public function create()
     {
-        return view('admin.fonts.add');
+        if($this->authorize('create',Font::class)){
+
+            return view('admin.fonts.add');
+
+        }else{
+            $str = '您无权限添加字体,'.'<a href="#" onclick="javascript:history.back(-1)">点击返回</a>';
+
+            return $str;
+        }
+
     }
 
     /**

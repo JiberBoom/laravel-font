@@ -53,7 +53,7 @@ class RolesController extends Controller
 
         }else{
 
-            return view('error.503');
+            return view('error.404');
         }
 
     }
@@ -116,12 +116,12 @@ class RolesController extends Controller
 
             }else{
 
-                return view('error.503');
+                return view('error.404');
             }
 
         }else{
 
-            return view('error.503');
+            return view('error.404');
         }
 
     }

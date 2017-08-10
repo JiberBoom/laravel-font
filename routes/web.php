@@ -35,7 +35,7 @@ Route::post('/fonts/thumb/upload','UploadController@FontThumbUpload');
 Route::post('/fonts/preview/upload','UploadController@FontPreviewUpload');
 
 //后台路由
-Route::group(['namespace' => 'Admin'], function () {
+Route::group(['namespace' => 'Admin','middleware'=>'auth'], function () {
 
     Route::get('/admin/home','HomeController@index');
 

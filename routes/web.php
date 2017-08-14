@@ -13,6 +13,7 @@
 
 use Illuminate\Support\Facades\Auth;
 
+
 Route::get('/', function (\Illuminate\Http\Request $request) {
 
     if(Auth::check()){
@@ -36,6 +37,8 @@ Route::post('/fonts/preview/upload','UploadController@FontPreviewUpload');
 
 //后台路由
 Route::group(['namespace' => 'Admin','middleware'=>'auth'], function () {
+
+    Route::get('/sendEmailJob','UsersController@index');//利用redis作为缓存驱动实现队列
 
     Route::get('/admin/home','HomeController@index');
 

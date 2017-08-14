@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin\Fonts;
 
 use App\Http\Requests\Admin\FontRequest;
+use App\Jobs\WatchFontList;
 use App\Models\Font;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 
@@ -21,19 +23,16 @@ class FontsController extends Controller
     public function index()
     {
 
-        Log::useFiles(storage_path().'/logs/font-'.date('Y-m-d').'.log','debug');//生成日志文件
-
-        Log::info(Auth::user()->name.'查看了字体列表',['user_id'=>Auth::id()]);//记录日志
-
-        $font = Font::orderBy('id','desc')
-
-            ->select('fonts.*','b.code')
-
-            ->leftJoin('languages as b','fonts.language_id','=','b.id')
-
-            ->paginate(10);//分页显示
-
         if(Auth::user()->can('view',Font::class)){
+
+            $font = Font::orderBy('id','desc')
+
+                ->select('fonts.*','b.code')
+
+                ->leftJoin('languages as b','fonts.language_id','=','b.id')
+
+                ->paginate(10);//分页显示
+
 
             return view('admin.fonts.index',compact('font'));
 
@@ -44,9 +43,6 @@ class FontsController extends Controller
            return $str;
         }
 
-
-//        $this->authorize('view',Font::class);//这种方式验证可以验证但是报laravel自身带的错误不好看
-
     }
 
     /**
@@ -56,6 +52,8 @@ class FontsController extends Controller
      */
     public function create()
     {
+        //$this->authorize('view',Font::class);//这种方式验证可以验证但是报laravel自身带的错误不好看
+
         if($this->authorize('create',Font::class)){
 
             return view('admin.fonts.add');

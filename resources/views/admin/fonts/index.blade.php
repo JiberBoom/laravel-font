@@ -9,9 +9,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">字体列表</div>
                     <div class="panel-body">
-                        @can('create',\App\Models\Font::class)
-                            <a href="{{url('/admin/fonts/add')}}" class="btn btn-sm btn-success">新增</a><br><br>
-                         @endcan
+                        {{--@can('create',\App\Models\Font::class)--}}
+                            {{--<a href="{{url('/admin/fonts/add')}}" class="btn btn-sm btn-success">新增</a><br><br>--}}
+                         {{--@endcan--}}
 
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" style="text-align: center">
@@ -119,6 +119,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 @section('js')
     <script>

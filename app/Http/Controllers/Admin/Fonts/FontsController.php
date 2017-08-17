@@ -16,6 +16,14 @@ use Spatie\Permission\Models\Role;
 class FontsController extends Controller
 {
     /**
+     * FontsController constructor.
+     */
+    public function __construct(Font $font)
+    {
+        $this->font=$font;
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -25,14 +33,7 @@ class FontsController extends Controller
 
         if(Auth::user()->can('view',Font::class)){
 
-            $font = Font::orderBy('id','desc')
-
-                ->select('fonts.*','b.code')
-
-                ->leftJoin('languages as b','fonts.language_id','=','b.id')
-
-                ->paginate(10);//分页显示
-
+            $font = $this->font->lists();
 
             return view('admin.fonts.index',compact('font'));
 

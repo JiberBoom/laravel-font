@@ -1,3 +1,24 @@
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,dialog,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,meter,nav,object,ol,output,p,pre,progress,q,rp,rt,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video,xmp{outline:none;margin:0;padding:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+b,strong{font-weight:bold}
+img{color:transparent;font-size:0;vertical-align:middle;-ms-interpolation-mode:bicubic}
+li{display:list-item}
+table{border-collapse:collapse;border-spacing:0}
+th,td,caption{font-weight:normal;vertical-align:top;text-align:left}
+svg{overflow:hidden}
+a{text-decoration: none;}
+
+html{color:#222;font-size:1em;line-height:1.4;background-color:#f6f6f6}
+::selection{background:#b3d4fc;text-shadow:none}
+::-webkit-scrollbar{width:0px;height:0px;display:none}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+audio,canvas,iframe,img,svg,video{vertical-align:middle}
+fieldset{border:0;margin:0;padding:0}
+textarea{resize:vertical}
+.browserupgrade{margin:0.2em 0;background:#ccc;color:#000;padding:0.2em 0}
+ul{padding:0;margin:0}
+li{padding:0;margin:0;list-style:none}
+body{width:100%;font-family:-apple-system-font,Helvetica Neue,Helvetica,sans-serif;color:#404245;text-rendering:optimizeLegibility;-webkit-overflow-scrolling:touch;-webkit-font-smoothing:antialiased;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;word-wrap:break-word;word-break:break-all}
 ul.nav.nav-list.tree{
     margin-left: 25px;
 }

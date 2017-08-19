@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Spatie\Permission\Models\Role;
 
 class Font extends Model
 {
@@ -18,6 +19,7 @@ class Font extends Model
      *
      * @return string
      */
+
     public function searchableAs()
     {
         return 'fonts_index';
@@ -38,6 +40,7 @@ class Font extends Model
             ->paginate(10);//分页显示
 
 //        $this->searchable();
+//        Role::searchable();
 
         return $lists;
     }

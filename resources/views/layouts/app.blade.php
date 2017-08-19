@@ -54,16 +54,22 @@
                     </button>
 
                     <!-- Branding Image -->
+
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
-                    <div class="search pull-left" style="margin-top: 8px">
-                        {{--<i class="fa fa-search fa-2x"></i>--}}
-                        <img class="img-search" src="/images/admin/search.png" width="25px" height="25px" alt="">
-                        <input type="text" class="form-control" value="" placeholder="全文检索" >
-                    </div>
+
 
                 </div>
+                {{--全文搜索--}}
+                <form action="{{url('/search')}}" method="get">
+                    {{csrf_field()}}
+                    <div class="search pull-left" style="margin-top: 8px">
+                        {{--<i class="fa fa-search fa-2x"></i>--}}
+                        <input type="image" class="img-search" src="/images/admin/search.png" width="25px" height="25px" alt="">
+                        <input type="text" name="query" class="form-control" value="" placeholder="ES全文检索" >
+                    </div>
+                </form>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->

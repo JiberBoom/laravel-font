@@ -181,7 +181,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,//debug调试
 
         Laravel\Scout\ScoutServiceProvider::class,//全文检索
-
+        ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
 
         /*
          * Application Service Providers...

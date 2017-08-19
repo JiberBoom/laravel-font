@@ -23,17 +23,21 @@ class FontsController extends Controller
         $this->font=$font;
     }
 
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
         if(Auth::user()->can('view',Font::class)){
 
             $font = $this->font->lists();
+
+//            $font = $this->font->search('Dr')->paginate(10);
+
 
             return view('admin.fonts.index',compact('font'));
 

@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
+use Swagger\Annotations\Info;
+use Swagger\Annotations\Swagger;
 
 class FontsController extends Controller
 {
@@ -25,9 +27,21 @@ class FontsController extends Controller
 
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @SWG\Post(path="/user",
+     *   tags={"user"},
+     *   summary="Create user",
+     *   description="This can only be done by the logged in user.",
+     *   operationId="createUser",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     in="body",
+     *     name="body",
+     *     description="Created user object",
+     *     required=true,
+     *     @SWG\Schema(ref="#/definitions/User")
+     *   ),
+     *   @SWG\Response(response="default", description="successful operation")
+     * )
      */
     public function index(Request $request)
     {

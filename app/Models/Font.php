@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Libraries\EsSearchable;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
-use Spatie\Permission\Models\Role;
 
 class Font extends Model
 {
-    use Searchable;
+
+    use Searchable,EsSearchable;
 
     protected $fillable = [
         'name', 'font_url','size','thumb_url','preview_url','language','author','desc','tags','status','rank','is_pay','price','unique_str','md5','language_id','download'
@@ -24,6 +25,14 @@ class Font extends Model
     {
         return 'fonts_index';
     }
+
+    public function toSearchableArray()
+     {
+         return [
+             'name' => $this->name,
+             'desc' => $this->desc
+        ];
+     }
 
     /**
      * 字体列表

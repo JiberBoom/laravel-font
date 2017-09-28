@@ -1,16 +1,6 @@
 @extends('layouts.app')
+
 @section('content')
-    {{--@include('../layouts.sidebar')--}}
-    {{--<div class="row">--}}
-        {{--<div class="col-md-10">--}}
-            {{--<form action="/search">--}}
-                {{--<div class="input-group">--}}
-                    {{--<input type="text" class="form-control h50" name="q" placeholder="关键字..." value="{{ $q }}">--}}
-                    {{--<span class="input-group-btn"><button class="btn btn-default h50" type="submit" type="button"><span class="glyphicon glyphicon-search"></span></button></span>--}}
-                {{--</div>--}}
-            {{--</form>--}}
-        {{--</div>--}}
-    {{--</div>--}}
     @if($q)
         @if($fonts->total() >0 )
         <div class="row">
@@ -41,16 +31,55 @@
 
                                 @foreach($fonts as $font)
                                     <tr>
-                                        <td>{{$font->name}}</td>
+
+                                        <td>
+                                            {{$font->name}}
+                                        </td>
                                         <td>{{$font->size}}</td>
                                         <td>{{$font->author}}</td>
-                                        <td>{{$font->desc}}</td>
+                                        <td>
+                                            @if(isset($font->highlight['desc']))
+                                                @foreach($font->highlight['desc'] as $item)
+                                                    {!! $item !!}
+                                                @endforeach
+                                            @else
+                                                {{$font->desc}}
+                                            @endif
+
+                                        </td>
                                         <td>{{$font->unique_str}}</td>
                                         <td>{{$font->download}}</td>
-                                        <td>{{$font->thumb_url}}</td>
-                                        <td>{{$font->preview_url}}</td>
+                                        <td>
+                                            @if(isset($font->highlight['thumb_url']))
+                                                @foreach($font->highlight['thumb_url'] as $item)
+                                                    {!! $item !!}
+                                                @endforeach
+                                            @else
+                                                {{$font->thumb_url}}
+                                            @endif
+
+                                        </td>
+                                        <td>
+                                            @if(isset($font->highlight['preview_url']))
+                                                @foreach($font->highlight['preview_url'] as $item)
+                                                    {!! $item !!}
+                                                @endforeach
+                                            @else
+                                                {{$font->preview_url}}
+                                            @endif
+
+                                        </td>
                                         <td>{{$font->font_url}}</td>
-                                        <td>{{$font->md5}}</td>
+                                        <td>
+                                            @if(isset($font->highlight['md5']))
+                                                @foreach($font->highlight['md5'] as $item)
+                                                    {!! $item !!}
+                                                @endforeach
+                                            @else
+                                                {{$font->md5}}
+                                            @endif
+
+                                        </td>
                                         <td>{{$font->price}}</td>
 
                                     </tr>
@@ -79,13 +108,24 @@
                     <div class="panel-body ">
 
                         <div class="table-responsive">
-                            <table class="table" >
+                            <table class="table table-striped table-bordered table-hover" >
                                 <th class="info">姓名</th>
                                 <th class="info">邮箱</th>
                                 @foreach($users as $user)
                                 <tr>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->email}}</td>
+                                    <td>
+                                        @if(isset($user->highlight['name']))
+                                            @foreach($user->highlight['name'] as $item)
+                                                {!! $item !!}
+                                             @endforeach
+                                            @else
+                                            {{$user->name}}
+                                        @endif
+
+                                    </td>
+                                    <td>
+                                        {{$user->email}}
+                                    </td>
                                 </tr>
                                 @endforeach
                             </table>
@@ -109,7 +149,7 @@
 
                     <div class="panel-body ">
                         <div class="table-responsive">
-                            <table class="table" >
+                            <table class="table table-striped table-bordered table-hover" >
                                 <th class="info">语种code</th>
                                 <th class="info">语种描述</th>
                                 <th class="info">语种类别</th>

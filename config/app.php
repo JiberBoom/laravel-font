@@ -182,6 +182,7 @@ return [
 
         Laravel\Scout\ScoutServiceProvider::class,//全文检索
         ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
+        L5Swagger\L5SwaggerServiceProvider::class,
 
         /*
          * Application Service Providers...

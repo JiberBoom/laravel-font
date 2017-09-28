@@ -38,7 +38,9 @@ class HomeController extends Controller
 
         if ($q) {
 
-            $fonts = Font::search($q)->paginate(2);
+            $fonts = Font::search($q)->get();
+
+            return $fonts;
 
             $users = User::search($q)->paginate(2);
 

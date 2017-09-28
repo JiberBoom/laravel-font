@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Libraries\EsSearchable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -13,6 +14,7 @@ class User extends Authenticatable
     use Notifiable;
     use HasRoles;
     use Searchable;
+    use EsSearchable;
 
     protected $guard_name = 'web';
 

@@ -1,5 +1,5 @@
 <?php
-
+echo 123;die;
 /**
  * Laravel - A PHP Framework For Web Artisans
  *

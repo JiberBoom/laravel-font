@@ -2,12 +2,21 @@
 
 namespace App;
 
+use App\Libraries\EsSearchable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+
+use Laravel\Scout\Searchable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasRoles;
+    use Searchable;
+    use EsSearchable;
+
+    protected $guard_name = 'web';
 
     /**
      * The attributes that are mass assignable.

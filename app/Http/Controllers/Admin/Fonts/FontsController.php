@@ -3,30 +3,65 @@
 namespace App\Http\Controllers\Admin\Fonts;
 
 use App\Http\Requests\Admin\FontRequest;
+use App\Jobs\WatchFontList;
 use App\Models\Font;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
+use Swagger\Annotations\Info;
+use Swagger\Annotations\Swagger;
 
 class FontsController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * FontsController constructor.
      */
-    public function index()
+    public function __construct(Font $font)
     {
-        $lists = Font::orderBy('id','desc')
+        $this->font=$font;
+    }
 
-            ->select('fonts.*','b.code')
 
-            ->leftJoin('languages as b','fonts.language_id','=','b.id')
+    /**
+     * @SWG\Post(path="/user",
+     *   tags={"user"},
+     *   summary="Create user",
+     *   description="This can only be done by the logged in user.",
+     *   operationId="createUser",
+     *   produces={"application/xml", "application/json"},
+     *   @SWG\Parameter(
+     *     in="body",
+     *     name="body",
+     *     description="Created user object",
+     *     required=true,
+     *     @SWG\Schema(ref="#/definitions/User")
+     *   ),
+     *   @SWG\Response(response="default", description="successful operation")
+     * )
+     */
+    public function index(Request $request)
+    {
 
-            ->paginate(10);//分页显示
+        if(Auth::user()->can('view',Font::class)){
 
-        return view('admin.fonts.index',compact('lists'));
+            $font = $this->font->lists();
+
+//            $font = $this->font->search('Dr')->paginate(10);
+
+
+            return view('admin.fonts.index',compact('font'));
+
+        }else{
+
+            $str = '您无权限查看字体列表,'.'<a href="#" onclick="javascript:history.back(-1)">点击返回</a>';
+
+           return $str;
+        }
+
     }
 
     /**
@@ -36,7 +71,18 @@ class FontsController extends Controller
      */
     public function create()
     {
-        return view('admin.fonts.add');
+        //$this->authorize('view',Font::class);//这种方式验证可以验证但是报laravel自身带的错误不好看
+
+        if($this->authorize('create',Font::class)){
+
+            return view('admin.fonts.add');
+
+        }else{
+            $str = '您无权限添加字体,'.'<a href="#" onclick="javascript:history.back(-1)">点击返回</a>';
+
+            return $str;
+        }
+
     }
 
     /**

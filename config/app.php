@@ -120,7 +120,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -175,6 +175,14 @@ return [
         Spatie\PaginateRoute\PaginateRouteServiceProvider::class,//seo友好分页
 
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,//上传文件七牛云
+
+        Spatie\Permission\PermissionServiceProvider::class,//权限管理
+
+        Barryvdh\Debugbar\ServiceProvider::class,//debug调试
+
+        Laravel\Scout\ScoutServiceProvider::class,//全文检索
+        ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
+        L5Swagger\L5SwaggerServiceProvider::class,
 
         /*
          * Application Service Providers...

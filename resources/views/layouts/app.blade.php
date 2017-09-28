@@ -11,17 +11,36 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    {{--<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <script>
         window.Laravel = {!! json_encode(['csrfToken' => csrf_token()]) !!};
         Laravel.apiToken = "{{ Auth::check() ? 'Bearer '.Auth::user()->api_token : 'Bearer ' }}";
     </script>
+
+    <style>
+        #app{
+
+
+        }
+        .search{
+            position: relative;
+        }
+        .img-search{
+            position: absolute;
+            top: 6px;
+            right: 5px;
+            z-index: 5;
+        }
+    </style>
+    @yield('style')
 </head>
 <body>
 
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        @if (Auth::check())
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="padding: 10px 0;background-color: #000;border: 0px;" >
 
             <div class="container">
                 <div class="navbar-header">
@@ -35,10 +54,22 @@
                     </button>
 
                     <!-- Branding Image -->
+
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+
+
                 </div>
+                {{--全文搜索--}}
+                <form action="{{url('/search')}}" method="get">
+                    {{csrf_field()}}
+                    <div class="search pull-left" style="margin-top: 8px">
+                        {{--<i class="fa fa-search fa-2x"></i>--}}
+                        <input type="image" class="img-search" src="/images/admin/search.png" width="25px" height="25px" alt="">
+                        <input type="text" name="query" class="form-control" value="" placeholder="ES全文检索" >
+                    </div>
+                </form>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
@@ -54,7 +85,7 @@
                             {{--<li><a href="{{ route('register') }}">注册</a></li>--}}
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -77,6 +108,7 @@
                 </div>
             </div>
         </nav>
+        @endif
 
         @yield('content')
 

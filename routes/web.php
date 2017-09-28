@@ -13,6 +13,7 @@
 
 use Illuminate\Support\Facades\Auth;
 
+
 Route::get('/', function (\Illuminate\Http\Request $request) {
 
     if(Auth::check()){
@@ -35,7 +36,11 @@ Route::post('/fonts/thumb/upload','UploadController@FontThumbUpload');
 Route::post('/fonts/preview/upload','UploadController@FontPreviewUpload');
 
 //后台路由
-Route::group(['namespace' => 'Admin'], function () {
+Route::group(['namespace' => 'Admin','middleware'=>'auth'], function () {
+
+    Route::get('/search/{query?}','HomeController@search');
+
+    Route::get('/sendEmailJob','UsersController@index');//利用redis作为缓存驱动实现队列
 
     Route::get('/admin/home','HomeController@index');
 
@@ -52,6 +57,35 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::resource('/fonts','FontsController');
 
         Route::get('/fonts/{id}/changeStatus/{status}','FontsController@changeFontStatus');//上下架操作
+
+
+    });
+
+    Route::group(['namespace'=>'Roles'],function(){
+
+        //角色
+        Route::paginate('/roles/index','RolesController@index');//角色列表
+
+        Route::get('/roles/add','RolesController@create');
+
+        Route::post('/roles/store','RolesController@store');//创建角色
+
+        Route::get('/roles/assignRole','RolesController@assignRole');//给用户授予角色
+
+        Route::get('/roles/assignRolePermission','RolesController@assignRolePermission');//给角色授予权限
+
+        Route::get('/roles/{role_name}/revokeRole/{uid}','RolesController@revokeRole');//撤回角色
+
+        Route::get('/roles/{role_id}/revokePermission/{permission_name}','RolesController@revokePermission');//撤回权限
+
+        Route::resource('/roles','RolesController');
+
+        //权限
+        Route::paginate('/permissions/index','PermissionsController@index');//权限列表
+        Route::get('/permissions/add','PermissionsController@create');
+        Route::post('permissions/create','PermissionsController@store');
+
+        Route::resource('/permissions','PermissionsController');
 
 
     });

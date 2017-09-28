@@ -24492,7 +24492,7 @@ var Component = __webpack_require__(50)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/liangzhenfeng/wwwroot/laravel-font/node_modules/_vue-image-crop-upload@1.3.14@vue-image-crop-upload/upload-2.vue"
+Component.options.__file = "/Users/liangzhenfeng/wwwroot/laravel-font2/node_modules/_vue-image-crop-upload@1.3.14@vue-image-crop-upload/upload-2.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] upload-2.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -24503,9 +24503,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0d77cc82", Component.options)
+    hotAPI.createRecord("data-v-ab7f07bc", Component.options)
   } else {
-    hotAPI.reload("data-v-0d77cc82", Component.options)
+    hotAPI.reload("data-v-ab7f07bc", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47918,7 +47918,7 @@ var Component = __webpack_require__(50)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/liangzhenfeng/wwwroot/laravel-font/resources/assets/js/components/Example.vue"
+Component.options.__file = "/Users/liangzhenfeng/wwwroot/laravel-font2/resources/assets/js/components/Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -47929,9 +47929,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d67b43fa", Component.options)
+    hotAPI.createRecord("data-v-140a5263", Component.options)
   } else {
-    hotAPI.reload("data-v-d67b43fa", Component.options)
+    hotAPI.reload("data-v-140a5263", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47995,7 +47995,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-d67b43fa", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-140a5263", module.exports)
   }
 }
 
@@ -48016,7 +48016,7 @@ var Component = __webpack_require__(50)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/liangzhenfeng/wwwroot/laravel-font/resources/assets/js/components/FontThumbUpload.vue"
+Component.options.__file = "/Users/liangzhenfeng/wwwroot/laravel-font2/resources/assets/js/components/FontThumbUpload.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] FontThumbUpload.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -48027,9 +48027,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6881f77e", Component.options)
+    hotAPI.createRecord("data-v-3106cebe", Component.options)
   } else {
-    hotAPI.reload("data-v-6881f77e", Component.options)
+    hotAPI.reload("data-v-3106cebe", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -52996,13 +52996,13 @@ var content = __webpack_require__(343);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(345)("38514de2", content, false);
+var update = __webpack_require__(345)("3839f56c", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../_css-loader@0.28.4@css-loader/index.js!../_vue-loader@12.2.2@vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0d77cc82\",\"scoped\":false,\"hasInlineConfig\":true}!../_vue-loader@12.2.2@vue-loader/lib/selector.js?type=styles&index=0!./upload-2.vue", function() {
-     var newContent = require("!!../_css-loader@0.28.4@css-loader/index.js!../_vue-loader@12.2.2@vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0d77cc82\",\"scoped\":false,\"hasInlineConfig\":true}!../_vue-loader@12.2.2@vue-loader/lib/selector.js?type=styles&index=0!./upload-2.vue");
+   module.hot.accept("!!../_css-loader@0.28.4@css-loader/index.js!../_vue-loader@12.2.2@vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ab7f07bc\",\"scoped\":false,\"hasInlineConfig\":true}!../_vue-loader@12.2.2@vue-loader/lib/selector.js?type=styles&index=0!./upload-2.vue", function() {
+     var newContent = require("!!../_css-loader@0.28.4@css-loader/index.js!../_vue-loader@12.2.2@vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ab7f07bc\",\"scoped\":false,\"hasInlineConfig\":true}!../_vue-loader@12.2.2@vue-loader/lib/selector.js?type=styles&index=0!./upload-2.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -54546,7 +54546,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-0d77cc82", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-ab7f07bc", module.exports)
   }
 }
 
@@ -54604,7 +54604,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-6881f77e", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-3106cebe", module.exports)
   }
 }
 
@@ -54625,7 +54625,7 @@ var Component = __webpack_require__(50)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/liangzhenfeng/wwwroot/laravel-font/resources/assets/js/components/FontPreviewUpload.vue"
+Component.options.__file = "/Users/liangzhenfeng/wwwroot/laravel-font2/resources/assets/js/components/FontPreviewUpload.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] FontPreviewUpload.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -54636,9 +54636,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7f464b33", Component.options)
+    hotAPI.createRecord("data-v-bc1f70da", Component.options)
   } else {
-    hotAPI.reload("data-v-7f464b33", Component.options)
+    hotAPI.reload("data-v-bc1f70da", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -54811,7 +54811,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-7f464b33", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-bc1f70da", module.exports)
   }
 }
 
